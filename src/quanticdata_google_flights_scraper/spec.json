@@ -1,0 +1,95 @@
+{
+ "cli": "google-flights-scraper",
+ "name": "Google Flights Scraper",
+ "version": "0.1.0",
+ "description": "Google Flights scraper for Python and the command line: one-way and round-trip itineraries between two airports for your dates, with airline, departure and arrival times, duration, stops, price and CO2 estimate, as JSON or CSV. Free and open source; sign in with your QuanticData account, no proxies or headless browser to run.",
+ "links": {
+  "repo": "https://github.com/quantumproxies/google-flights-scraper",
+  "page": "https://quanticdata.io/collectors/google-flights-api/?utm_source=github&utm_medium=cli&utm_campaign=google-flights-scraper",
+  "billing": "https://app.quanticdata.io/billing?utm_source=github&utm_medium=cli&utm_campaign=google-flights-scraper",
+  "pricing": "https://quanticdata.io/pricing/?utm_source=github&utm_medium=cli&utm_campaign=google-flights-scraper"
+ },
+ "commands": [
+  {
+   "name": "search",
+   "collector": "google_flights",
+   "method": "search",
+   "help": "Google Flights itineraries between two airports",
+   "description": "Flight itineraries between two airports — airline, times, stops, price, emissions.",
+   "positional": "departure_id",
+   "positional_is_list": false,
+   "positional_optional": false,
+   "columns": [
+    "rank",
+    "airline",
+    "departure_time",
+    "arrival_time",
+    "duration",
+    "stops",
+    "price"
+   ],
+   "sample": "google_flights",
+   "inputs": [
+    {
+     "name": "departure_id",
+     "type": "string",
+     "required": true,
+     "description": "Departure airport or city IATA code, e.g. JFK.",
+     "arg": "departure_id"
+    },
+    {
+     "name": "arrival_id",
+     "type": "string",
+     "required": true,
+     "description": "Arrival airport or city IATA code, e.g. LAX.",
+     "arg": "arrival_id"
+    },
+    {
+     "name": "outbound_date",
+     "type": "string",
+     "required": true,
+     "description": "Departure date YYYY-MM-DD.",
+     "arg": "outbound_date"
+    },
+    {
+     "name": "return_date",
+     "type": "string",
+     "required": false,
+     "description": "Return date YYYY-MM-DD — omit for one-way.",
+     "arg": "return_date"
+    },
+    {
+     "name": "currency",
+     "type": "string",
+     "required": false,
+     "description": "3-letter price currency (USD, EUR…). Default USD.",
+     "arg": "currency"
+    },
+    {
+     "name": "country",
+     "type": "string",
+     "required": false,
+     "description": "Country to run the request from, as an ISO 3166-1 alpha-2 code (us, gb, de...).",
+     "arg": "country"
+    },
+    {
+     "name": "lang",
+     "type": "string",
+     "required": false,
+     "description": "Interface language, e.g. en, it, de.",
+     "arg": "lang"
+    },
+    {
+     "name": "max_results",
+     "type": "integer",
+     "required": false,
+     "description": "How many itineraries to deliver at most (1–30). You pay only for delivered itineraries.",
+     "min": 1,
+     "max": 30,
+     "default": 15,
+     "arg": "max_results"
+    }
+   ]
+  }
+ ]
+}

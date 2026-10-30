@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quanticdata-google-flights-scraper"
+version = "0.1.0"
+description = "Google Flights scraper for Python and the command line: one-way and round-trip itineraries between two airports for your dates, with airline, departure and arrival times, duration, stops, price and CO2 estimate, as JSON or CSV. Free and open source; sign in with your QuanticData account, no proxies or headless browser to run."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{ name = "QuanticData", email = "hello@quanticdata.io" }]
+keywords = ["google-flights", "google-flights-scraper", "google-flights-api", "flight-scraper", "flight-prices", "flight-data", "airfare", "fare-tracker", "travel-data", "web-scraping", "scraper", "python"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+pandas = ["pandas>=1.3"]
+
+[project.scripts]
+google-flights-scraper = "quanticdata_google_flights_scraper.__main__:run"
+
+[project.urls]
+Homepage = "https://quanticdata.io/collectors/google-flights-api/?utm_source=github&utm_medium=pypi&utm_campaign=google-flights-scraper"
+Documentation = "https://quanticdata.io/docs/"
+Source = "https://github.com/quantumproxies/google-flights-scraper"
+Issues = "https://github.com/quantumproxies/google-flights-scraper/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"quanticdata_google_flights_scraper" = ["spec.json", "py.typed"]

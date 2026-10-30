@@ -1,8 +1,10 @@
-.env
-.env.*
-*.key
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+build/
+dist/
 .venv/
-node_modules/
-.DS_Store
+.env
+*.csv
+*.jsonl
+!tests/fixtures/*.json
